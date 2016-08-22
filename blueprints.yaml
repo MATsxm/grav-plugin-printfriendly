@@ -10,7 +10,7 @@ homepage: https://github.com/iusvar/grav-plugin-printfriendly
 demo: http://iusvar.hostfree.pw/
 keywords: grav, plugin, printfriendly
 bugs: https://github.com/iusvar/grav-plugin-printfriendly/issues
-readme: https://github.com/iusvar/grav-plugin-printfriendly/README.md
+readme: https://github.com/iusvar/grav-plugin-printfriendly/blob/master/README.md
 license: MIT
 
 form:
