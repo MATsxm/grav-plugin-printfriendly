@@ -1,0 +1,56 @@
+<a class="popup" href="#" onclick="onPrint('{{found.title}}','{{found.slug}}','{{ 'PRINTFRIENDLY_PLUGIN.PRINT'|t }}','{{ 'PRINTFRIENDLY_PLUGIN.CLOSE'|t }}','{{ width }}','{{ height }}','{{ icon }}');return false;" >
+
+    {% if config.plugins.printfriendly.link_label == "icon" or config.plugins.printfriendly.awesome.link_label == "both" %}
+        <i class="fa fa-{{icon}}" aria-hidden="true"></i>&nbsp;
+    {% endif %}
+
+    {% if config.plugins.printfriendly.link_label == "text" or config.plugins.printfriendly.awesome.link_label == "both" %}
+        {{ 'PRINTFRIENDLY_PLUGIN.PRINT'|t }}
+    {% endif %}
+    
+</a>
+<div id="dialogDiv-{{found.slug}}" style="display: none;">
+    <div id="printContent-{{found.slug}}">
+
+        {% if config.plugins.printfriendly.metadata.use_title %}
+            {% if found.title %}
+                <h4>{{ 'PRINTFRIENDLY_PLUGIN.TITLE'|t }}: {{found.title}}</h4>
+            {% endif %}
+        {% endif %}
+
+        {% if config.plugins.printfriendly.metadata.use_author %}
+            {% if found.taxonomy.author %}
+                <span><h5>{{ 'PRINTFRIENDLY_PLUGIN.AUTHOR'|t }}:
+                    {% for author in found.taxonomy.author %}
+                        {{ author }}
+                    {% endfor %}
+                </h5></span>
+            {% endif %}
+        {% endif %}
+
+        {% if config.plugins.printfriendly.metadata.use_date %}
+            {% if found.date %}
+                <h6>{{ 'PRINTFRIENDLY_PLUGIN.DATE'|t }}: {{ found.date|date("m-d-Y") }}</h6>
+            {% endif %}
+        {% endif %}
+
+        {% if config.plugins.printfriendly.metadata.use_tags %}
+            {% if found.taxonomy.tag %}
+                <span><h6>{{ 'PRINTFRIENDLY_PLUGIN.TAGS'|t }}:
+                    {% for tag in found.taxonomy.tag %}
+                        {{ tag }}{% if not loop.last %},&nbsp;{% endif %}
+                    {% endfor %}
+                </h6></span>
+            {% endif %}
+        {% endif %}
+
+        {% if config.plugins.printfriendly.metadata.use_image %}
+            {% set header_image_media = found.media.images|first %}
+            {% if header_image_media %}
+                {{ header_image_media.cropZoom(600, 300).html }}
+            {% endif %}
+        {% endif %}
+
+        {{found.content}}
+    </div>
+</div>

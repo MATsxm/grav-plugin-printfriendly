@@ -1,0 +1,70 @@
+# Global plugin configurations.
+enabled: true               # Set to false to disable this plugin completely.
+built_in_css: true          # Use built-in CSS of the plugin.
+
+# jQuery user interface library.
+jqueryui:
+  source: maxcdn            # Set source between your server or MaxCDN.
+  version: 1.12.0           # Set version.
+  themes: start             # Set theme for window.
+
+# Window size.
+window:
+  width: 50                 # A percentage of the maximum size of the device width.
+  height: 40                # A percentage of the maximum size of the device height.
+
+# Font Awesome, the iconic font and CSS framework.
+awesome:
+  use_font: false           # Set true to use the library.
+  icon: print               # Choose icon if the library is enabled.
+  link_label: both          # It allows you to see both icon and text.
+
+# Some items you can include in printing.
+metadata:
+  use_image: true           # It refers to the first image in the folder.
+                            # However, all images including the first are printed if the img tag is present in allowed_tags.
+  use_title: true
+  use_author: true
+  use_date: false
+  use_tags: false
+
+# The strip_tags function delete from a html document all tags except those listed.
+# You can add or delete tags elements.
+tags:
+  allowed_tags:
+    - a
+    - b
+    - blockquote
+    - br
+    - cite
+    - code
+    - div
+    - em
+    - h1
+    - h2
+    - h3
+    - h4
+    - h5
+    - h6
+    - hr
+    - i
+    - img
+    - li
+    - ol
+    - p
+    - pre
+    - small
+    - span
+    - strong
+    - sub
+    - sup
+    - table
+    - tbody
+    - td
+    - textarea
+    - tfoot
+    - th
+    - thead
+    - tr
+    - u
+    - ul
